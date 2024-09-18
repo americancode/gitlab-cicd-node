@@ -8,7 +8,7 @@ ENV NVM_DIR=/root/.nvm
 
 # Install necessary packages and NVM
 RUN apt-get update && \
-    apt-get install -y curl && \
+    apt-get install -y curl zip unzip gzip && \
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh | bash && \
     /bin/bash -c "source $NVM_DIR/nvm.sh && nvm install $NODE_VERSION" && \
     /bin/bash -c "source $NVM_DIR/nvm.sh && nvm use $NODE_VERSION" && \

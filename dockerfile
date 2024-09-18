@@ -3,7 +3,7 @@ FROM ubuntu:24.04
 
 # Set environment variables for Node.js and Yarn versions
 ENV NODE_VERSION=20.17.0
-ENV YARN_VERSION=3.8.5
+ENV YARN_VERSION=4.5.0
 ENV NVM_DIR=/root/.nvm
 
 # Install necessary packages and NVM

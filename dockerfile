@@ -1,19 +1,20 @@
-# Use an official Ubuntu base image
-FROM ubuntu:24.04
+# Use an alpine image
+FROM alpine:3.21.3
 
 # Set environment variables for Node.js and Yarn versions
-ENV NODE_VERSION=20.17.0
+ENV NODE_VERSION=22.14.0
 ENV YARN_VERSION=4.5.0
 ENV NVM_DIR=/root/.nvm
 
 # Install necessary packages and NVM
-RUN apt-get update && \
-    apt-get install -y curl zip unzip gzip && \
+# Install prerequisites
+RUN apk update && \
+    apk upgrade --no-cache && \
+    apk add curl zip unzip gzip && \
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh | bash && \
     /bin/bash -c "source $NVM_DIR/nvm.sh && nvm install $NODE_VERSION" && \
     /bin/bash -c "source $NVM_DIR/nvm.sh && nvm use $NODE_VERSION" && \
     /bin/bash -c "source $NVM_DIR/nvm.sh && nvm alias default $NODE_VERSION"
-
 
 ENV PATH="$NVM_DIR/versions/node/v$NODE_VERSION/bin:$NVM_DIR:$PATH"
 

@@ -10,7 +10,7 @@ ENV NVM_DIR=/root/.nvm
 # Install prerequisites
 RUN apk update && \
     apk upgrade --no-cache && \
-    apk add nodejs npm ca-certificates update-ca-certificates
+    apk add nodejs npm ca-certificates
     
 # RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh | sh && \
 #     /bin/sh -c "source $NVM_DIR/nvm.sh && nvm install $NODE_VERSION" && \
